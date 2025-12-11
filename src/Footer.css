@@ -1,0 +1,39 @@
+.footer-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.footer-logo {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+  width: 120px;
+  height: auto;
+  display: block; /* Removes extra space below image */
+}
+
+.footer-links {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-items {
+    text-decoration: none;
+    color: #3333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-items:hover {
+    color: #007bff;
+}

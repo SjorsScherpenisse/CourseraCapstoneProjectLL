@@ -1,9 +1,19 @@
-header .image-container {
-  width: 100px;
-  height: 100px;
+
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-footer .image-container {
-  width: 100px;
-  height: 100px;
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
+
+
+
+
+
+
+

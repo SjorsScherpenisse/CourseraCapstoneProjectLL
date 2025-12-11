@@ -1,28 +1,20 @@
 import './App.css';
+import './Nav.css';
 
 function Nav() {
+    const navItems = ['Home', 'About', 'Menu', 'Reservation', 'Order Online', 'Contact'];
     return (
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/about">About</a>
-                </li>
-                <li>
-                    <a href="/menu">Menu</a>
-                </li>
-                <li>
-                    <a href="/reservations">Reservations</a>
-                </li>
-                <li>
-                    <a href="/order-online">Order Online</a>
-                </li>
-                <li>
-                    <a href="log-in">Log In</a>
-                </li>
-            </ul>
+        <nav className='nav-container'>
+            <div className='nav-logo'>
+                <img src='littlelemon.png' alt='Little Lemon Logo'/>
+            </div>
+            <div className="nav-links">
+                {navItems.map((item) => (
+                    <a key={item} href={`#${item.toLowerCase()}`} className="nav-item">
+                        {item}
+                    </a>
+                    ))}
+            </div>
         </nav>
     );
 }
