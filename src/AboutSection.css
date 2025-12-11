@@ -1,0 +1,108 @@
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 3rem; /* Space between text and image */
+  align-items: center; /* Vertically align items */
+  max-width: 1200px; /* Limit width for centering */
+  margin: 0 auto; /* Center horizontally */
+  padding: 4rem 2rem; /* Spacing around */
+  min-height: 80vh; /* Makes it taller, adjust as needed */
+}
+
+/* Text content column */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between text elements */
+}
+
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.about-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Image column */
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .about-container {
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    text-align: center;
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .about-content {
+    order: 1; /* Text first on mobile */
+  }
+  
+  .about-image {
+    order: 2; /* Image second on mobile */
+  }
+  
+  .about-button {
+    align-self: center; /* Center button on mobile */
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+/* Optional: Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.about-image {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}

@@ -1,0 +1,198 @@
+/* HighlightSection.css */
+.highlight-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Header row with title and button */
+.highlight-header {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Title left, button right */
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.highlight-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.highlight-button {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background-color: #e63946; /* Red/orange for food */
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.highlight-button:hover {
+  background-color: #d62839;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.2);
+}
+
+/* Grid for 3 dish cards */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 2.5rem; /* Space between cards */
+}
+
+/* Individual dish card */
+.dish-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden; /* Keeps image corners rounded */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dish-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Crops image nicely */
+}
+
+.dish-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.dish-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.dish-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e63946;
+  margin: 0;
+}
+
+.dish-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes button to bottom */
+}
+
+.dish-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background-color: #f8f9fa;
+  color: #666;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tag.spicy {
+  background-color: #fff5f5;
+  color: #e63946;
+}
+
+.tag.veg {
+  background-color: #f0f9f0;
+  color: #2e7d32;
+}
+
+.tag.bestseller {
+  background-color: #fff8e6;
+  color: #f57c00;
+}
+
+.dish-order-btn {
+  padding: 0.75rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.dish-order-btn:hover {
+  background-color: #e63946;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .dishes-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    gap: 2rem;
+  }
+  
+  .dish-card:last-child {
+    grid-column: 1 / -1; /* Last card spans both columns */
+    max-width: 500px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .highlight-container {
+    padding: 3rem 1rem;
+  }
+  
+  .highlight-header {
+    grid-template-columns: 1fr; /* Stack title and button */
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .highlight-title {
+    font-size: 2rem;
+  }
+  
+  .dishes-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .dish-card:last-child {
+    grid-column: 1; /* Reset span on mobile */
+    max-width: none;
+  }
+  
+  .dish-image {
+    height: 180px;
+  }
+}

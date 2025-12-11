@@ -1,0 +1,124 @@
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 3rem; /* Space between text and image */
+  align-items: center; /* Vertically align items */
+  max-width: 1200px; /* Limit width for centering */
+  margin: 0 auto; /* Center horizontally */
+  padding: 4rem 2rem; /* Spacing around */
+  min-height: 80vh; /* Makes it taller, adjust as needed */
+}
+
+/* Text content column */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between text elements */
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  width: fit-content;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #0056b3;
+}
+
+/* Image column */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .hero-container {
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    text-align: center;
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content {
+    order: 1; /* Text first on mobile */
+  }
+  
+  .hero-image {
+    order: 2; /* Image second on mobile */
+  }
+  
+  .hero-button {
+    align-self: center; /* Center button on mobile */
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+/* Optional: Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-image {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
