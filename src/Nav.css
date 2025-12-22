@@ -1,4 +1,9 @@
 
+.nav-wrapper {
+  background-color: #acc6a9;
+  width: 100%;
+}
+
 .nav-container {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -18,7 +23,7 @@
 .nav-logo img {
   width: 120px;
   height: auto;
-  display: block; /* Removes extra space below image */
+  display: block;
 }
 
 .nav-links {
@@ -28,14 +33,27 @@
     gap: 2rem;
 }
 
-.nav-items {
+.nav-item {
     text-decoration: none;
-    color: #3333;
+    color: #ffffff;
     font-weight: 500;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: inline-block;
 }
 
-.nav-items:hover {
-    color: #007bff;
+.nav-item:hover,
+.nav-item:focus-visible {
+    background-color: #6e9b6b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.nav-item:active {
+  background-color: #3b3b3b;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease;
+}

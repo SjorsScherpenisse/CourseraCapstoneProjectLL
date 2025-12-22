@@ -11,6 +11,7 @@
   font-weight: 700;
   margin-bottom: 1rem;
   color: #333;
+  text-align: center;
 }
 
 .testimonials-subtitle {
@@ -21,6 +22,7 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* Grid for the 4 cards */
@@ -29,6 +31,8 @@
   grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
   gap: 2rem; /* Space between cards */
   margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 /* Individual testimonial card */
@@ -104,23 +108,23 @@
   .testimonials-container {
     padding: 3rem 1rem;
   }
-  
+
   .testimonials-title {
     font-size: 2rem;
   }
-  
+
   .testimonials-subtitle {
     font-size: 1rem;
     margin-bottom: 2rem;
   }
-  
+
   .testimonials-grid {
     grid-template-columns: 1fr; /* 1 column on mobile */
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .testimonial-card {
     padding: 1.5rem;
   }

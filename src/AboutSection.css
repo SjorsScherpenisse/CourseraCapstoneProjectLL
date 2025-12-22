@@ -1,4 +1,8 @@
 
+.about-wrapper {
+  background-color: #edfbeb;
+}
+
 .about-container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
@@ -44,6 +48,7 @@
   height: auto;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 /* Responsive design */
