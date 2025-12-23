@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import HeroSection from './HeroSection.js';
 import HighlightSection from './HighlightSection.js';
 import TestimonialSection from './TestimonialSection.js';
