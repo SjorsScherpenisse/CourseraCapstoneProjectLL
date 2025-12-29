@@ -20,8 +20,8 @@ function HeroSection() {
       </div>
       <div className="hero-image">
         <img
-          src="littlelemon.png"
-          alt="Little Lemon Logo"
+          src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+          alt="Little Lemon restaurant"
         />
       </div>
     </section>

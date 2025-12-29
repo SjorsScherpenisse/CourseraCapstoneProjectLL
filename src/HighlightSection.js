@@ -7,7 +7,7 @@ function HighlightSection() {
       name: "Truffle Pasta",
       price: "$24",
       description: "Handmade pasta with black truffle, parmesan cream sauce, and fresh herbs.",
-      image: "/dishes/truffle-pasta.jpg",
+      image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Bestseller", "Vegetarian"],
       spicy: false
     },
@@ -16,7 +16,7 @@ function HighlightSection() {
       name: "Spicy Tuna Roll",
       price: "$18",
       description: "Fresh tuna, avocado, cucumber, with our signature spicy mayo sauce.",
-      image: "/dishes/tuna-roll.jpg",
+      image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Spicy", "Sushi"],
       spicy: true
     },
@@ -25,7 +25,7 @@ function HighlightSection() {
       name: "Herb Crusted Salmon",
       price: "$26",
       description: "Atlantic salmon with herb crust, lemon butter sauce, and seasonal vegetables.",
-      image: "/dishes/salmon.jpg",
+      image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Gluten-Free", "Healthy"],
       spicy: false
     }
