@@ -1,23 +1,43 @@
-// BookingForm.js - CORRECTED
-import React, { useState } from 'react'; // Single import
+// BookingForm.js - WITH VALIDATION
+import React, { useState, useEffect } from 'react';
 import './BookingForm.css';
 
 function BookingForm(props) {
-  // ✅ Destructure ONLY what's passed from App.js
   const { availableTimes, dispatch } = props;
-  
-  // ✅ Create LOCAL state for form fields
+
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('');
-  
-  // Handler functions
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  // Validate form on every change
+  useEffect(() => {
+    validateForm();
+  }, [date, time, guests, occasion]);
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Date validation
+    if (!date) newErrors.date = 'Date is required';
+    
+    // Time validation
+    if (!time) newErrors.time = 'Time is required';
+    
+    // Guests validation
+    if (!guests) newErrors.guests = 'Number of guests is required';
+    else if (guests < 1) newErrors.guests = 'Must be at least 1 guest';
+    else if (guests > 10) newErrors.guests = 'Maximum 10 guests allowed';
+
+    setErrors(newErrors);
+    setIsFormValid(Object.keys(newErrors).length === 0);
+  };
+
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     setDate(selectedDate);
-    
-    // Dispatch date change to update available times
     dispatch({ type: 'UPDATE_TIMES', date: selectedDate });
   };
 
@@ -36,9 +56,17 @@ function BookingForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    if (!isFormValid) {
+      alert('Please fix form errors before submitting');
+      return;
+    }
+
     console.log('Form submitted:', { date, time, guests, occasion });
     alert(`Reservation submitted for ${date} at ${time} for ${guests} guests`);
-    
+
+    // Dispatch booking to remove time
+    dispatch({ type: 'ADD_BOOKING', bookedTime: time });
+
     // Reset form
     setDate('');
     setTime('');
@@ -49,24 +77,26 @@ function BookingForm(props) {
   return (
     <div className="booking-form-container">
       <form className="booking-form" onSubmit={handleSubmit}>
-        {/* Date Field - dispatches when changed */}
+        {/* Date Field */}
         <div className="form-group">
-          <label htmlFor="date">Date</label>
-          <input 
-            type="date" 
-            id="date" 
+          <label htmlFor="date">Date *</label>
+          <input
+            type="date"
+            id="date"
             name="date"
             value={date}
             onChange={handleDateChange}
-            required 
+            required
+            min={new Date().toISOString().split('T')[0]}
           />
+          {errors.date && <span className="error">{errors.date}</span>}
         </div>
-        
-        {/* Time Field - populated from availableTimes reducer */}
+
+        {/* Time Field */}
         <div className="form-group">
-          <label htmlFor="time">Time</label>
-          <select 
-            id="time" 
+          <label htmlFor="time">Time *</label>
+          <select
+            id="time"
             name="time"
             value={time}
             onChange={handleTimeChange}
@@ -79,27 +109,30 @@ function BookingForm(props) {
               </option>
             ))}
           </select>
+          {errors.time && <span className="error">{errors.time}</span>}
         </div>
-        
-        {/* Other fields remain the same */}
+
+        {/* Guests Field */}
         <div className="form-group">
-          <label htmlFor="guests">Number of Guests</label>
-          <input 
-            type="number" 
-            id="guests" 
+          <label htmlFor="guests">Number of Guests *</label>
+          <input
+            type="number"
+            id="guests"
             name="guests"
             value={guests}
             onChange={handleGuestsChange}
-            min="1" 
-            max="10" 
-            required 
+            min="1"
+            max="10"
+            required
           />
+          {errors.guests && <span className="error">{errors.guests}</span>}
         </div>
-        
+
+        {/* Occasion Field */}
         <div className="form-group">
           <label htmlFor="occasion">Occasion (Optional)</label>
-          <select 
-            id="occasion" 
+          <select
+            id="occasion"
             name="occasion"
             value={occasion}
             onChange={handleOccasionChange}
@@ -111,8 +144,13 @@ function BookingForm(props) {
             <option value="other">Other</option>
           </select>
         </div>
-        
-        <button type="submit" className="submit-btn">
+
+        <button 
+          type="submit" 
+          className="submit-btn"
+          disabled={!isFormValid}
+          aria-label="On Click"
+        >
           Reserve Table
         </button>
       </form>
